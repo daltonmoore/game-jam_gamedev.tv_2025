@@ -37,6 +37,10 @@ window/stretch/mode="2d"
 
 enabled=PackedStringArray("res://addons/fancy_editor_sounds/plugin.cfg", "res://addons/script-ide/plugin.cfg")
 
+[global_group]
+
+enemy_contact_hurtboxes=""
+
 [input]
 
 move_up={

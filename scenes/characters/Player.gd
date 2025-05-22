@@ -167,7 +167,7 @@ func despawn():
 
 
 func _on_hurtbox_area_entered(area):
-	if state != STATE_DIE and area.is_in_group("enemy_weapons"):
+	if state != STATE_DIE and (area.is_in_group("enemy_contact_hurtboxes")):
 		hitpoints -= 1
 		emit_signal("health_changed", hitpoints)
 		var pushback_direction = (global_position - area.global_position).normalized()

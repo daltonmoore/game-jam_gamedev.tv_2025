@@ -1,7 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://de2ddlv16jbug"]
+[gd_scene load_steps=10 format=3 uid="uid://cfjjdskud8l4g"]
 
 [ext_resource type="Texture2D" uid="uid://cj0xexfo835ls" path="res://textures/dust_bunny.png" id="1_xfs3y"]
 [ext_resource type="Script" uid="uid://d0p62aakdh4lt" path="res://scenes/characters/dust_bunny.gd" id="2_lg7n7"]
+
+[sub_resource type="Animation" id="Animation_lg7n7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_xfs3y"]
 resource_name = "idle"
@@ -18,21 +33,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_lg7n7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_lsnwy"]
@@ -66,6 +66,10 @@ height = 71.7178
 [sub_resource type="CircleShape2D" id="CircleShape2D_lg7n7"]
 radius = 430.512
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lsnwy"]
+radius = 33.801
+height = 67.6021
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("2_lg7n7")
 
@@ -94,5 +98,12 @@ position = Vector2(0, -25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_lg7n7")
+
+[node name="hurtbox" type="Area2D" parent="." groups=["enemy_contact_hurtboxes"]]
+position = Vector2(2, -25)
+scale = Vector2(1.28, 1.28)
+
+[node name="col" type="CollisionShape2D" parent="hurtbox"]
+shape = SubResource("CapsuleShape2D_lsnwy")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

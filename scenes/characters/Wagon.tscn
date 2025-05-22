@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://borq400q4dlgf"]
+
+[ext_resource type="Script" uid="uid://bpm8omb353kss" path="res://scenes/characters/Wagon.gd" id="1_mbx1e"]
+[ext_resource type="Texture2D" uid="uid://x2dbxkdmjh4x" path="res://textures/wagon.PNG" id="1_trjy5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_trjy5"]
+radius = 33.801
+height = 67.6021
+
+[node name="Wagon" type="Node2D"]
+script = ExtResource("1_mbx1e")
+move_speed = Vector2(1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_trjy5")
+
+[node name="hurtbox" type="Area2D" parent="."]
+scale = Vector2(7.25, 7.25)
+
+[node name="col" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(0.137931, 2.48276)
+scale = Vector2(0.944828, 0.944828)
+shape = SubResource("CapsuleShape2D_trjy5")

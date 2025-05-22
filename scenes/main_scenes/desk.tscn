@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://bl1gyul5ipjg8"]
+[gd_scene load_steps=8 format=4 uid="uid://bl1gyul5ipjg8"]
 
 [ext_resource type="Texture2D" uid="uid://b5eitp4ffj3ek" path="res://textures/desk/interior free.png" id="1_0nqma"]
 [ext_resource type="PackedScene" uid="uid://ctd3mgp0s172q" path="res://scenes/characters/Player.tscn" id="2_sxhoc"]
 [ext_resource type="Script" uid="uid://b7ppypyl4kgw5" path="res://scenes/camera/camera.gd" id="3_xdw2a"]
-[ext_resource type="PackedScene" uid="uid://de2ddlv16jbug" path="res://scenes/characters/dust_bunny.tscn" id="4_x4m1m"]
+[ext_resource type="PackedScene" uid="uid://cfjjdskud8l4g" path="res://scenes/characters/dust_bunny.tscn" id="4_x4m1m"]
+[ext_resource type="PackedScene" uid="uid://borq400q4dlgf" path="res://scenes/characters/Wagon.tscn" id="5_dylvs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sxhoc"]
 texture = ExtResource("1_0nqma")
@@ -21,8 +22,7 @@ tile_set = SubResource("TileSet_xdw2a")
 metadata/_edit_lock_ = true
 
 [node name="Character" parent="." instance=ExtResource("2_sxhoc")]
-position = Vector2(171, 389)
-metadata/_edit_lock_ = true
+position = Vector2(374, 439)
 
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(581, 328)
@@ -32,4 +32,8 @@ move_speed = Vector2(1, 0)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="DustBunny" parent="." instance=ExtResource("4_x4m1m")]
-position = Vector2(479, 306)
+position = Vector2(938, 366)
+
+[node name="Wagon" parent="." instance=ExtResource("5_dylvs")]
+position = Vector2(146, 342)
+scale = Vector2(0.397353, 0.397353)

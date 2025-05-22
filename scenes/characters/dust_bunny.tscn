@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=3 uid="uid://de2ddlv16jbug"]
+
+[ext_resource type="Texture2D" uid="uid://cj0xexfo835ls" path="res://textures/dust_bunny.png" id="1_xfs3y"]
+[ext_resource type="Script" uid="uid://d0p62aakdh4lt" path="res://scenes/characters/dust_bunny.gd" id="2_lg7n7"]
+
+[sub_resource type="Animation" id="Animation_xfs3y"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_lg7n7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_lsnwy"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.401399, 0.501399, 0.601399, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fqins"]
+_data = {
+&"RESET": SubResource("Animation_lg7n7"),
+&"idle": SubResource("Animation_xfs3y"),
+&"walk": SubResource("Animation_lsnwy")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lg7n7"]
+radius = 35.8589
+height = 71.7178
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lg7n7"]
+radius = 430.512
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("2_lg7n7")
+
+[node name="DustBunny" type="Sprite2D" parent="."]
+position = Vector2(1, -31)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_xfs3y")
+hframes = 4
+vframes = 3
+region_enabled = true
+region_rect = Rect2(39, 2, 947, 921)
+
+[node name="anims" type="AnimationPlayer" parent="."]
+root_node = NodePath("../DustBunny")
+libraries = {
+&"": SubResource("AnimationLibrary_fqins")
+}
+
+[node name="hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(2, -25)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_lg7n7")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_lg7n7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

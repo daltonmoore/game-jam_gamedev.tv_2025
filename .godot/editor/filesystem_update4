@@ -3,3 +3,11 @@ res://default_env.tres
 res://scenes/levels/Controls.tscn
 res://singletons/Music.gd
 res://scenes/levels/Intro.tscn
+res://scenes/characters/Player.tscn
+res://scenes/misc/stats.stylebox
+res://scenes/levels/Outside.tscn
+res://scenes/characters/Player.gd
+res://scenes/main_scenes/desk.tscn
+res://scenes/camera/camera.gd
+res://scenes/characters/dust_bunny.tscn
+res://scenes/characters/dust_bunny.gd

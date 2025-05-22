@@ -12,7 +12,7 @@ config_version=5
 
 config/name="game-jam_gamedev.tv_2025"
 config/tags=PackedStringArray("2d", "topdown")
-run/main_scene="res://scenes/levels/Intro.tscn"
+run/main_scene="uid://bl1gyul5ipjg8"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.4")
 config/icon="res://icon.png"

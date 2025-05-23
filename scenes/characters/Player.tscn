@@ -820,7 +820,7 @@ radius = 33.801
 height = 67.6021
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-collision_mask = 0
+collision_mask = 4
 script = ExtResource("2")
 WALK_SPEED = 500
 
@@ -859,10 +859,10 @@ properties = ["linear_vel", "roll_direction", "facing"]
 enabled = false
 
 [node name="hurtbox" type="Area2D" parent="."]
-collision_mask = 6
+collision_mask = 2
 
 [node name="col" type="CollisionShape2D" parent="hurtbox"]
-position = Vector2(2, -38)
+position = Vector2(5, -79)
 shape = SubResource("18")
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://borq400q4dlgf"]
+[gd_scene load_steps=5 format=3 uid="uid://borq400q4dlgf"]
 
 [ext_resource type="Script" uid="uid://bpm8omb353kss" path="res://scenes/characters/Wagon.gd" id="1_mbx1e"]
 [ext_resource type="Texture2D" uid="uid://c7lvefh7gxko2" path="res://textures/wagon.PNG" id="1_trjy5"]
@@ -7,8 +7,13 @@
 radius = 33.801
 height = 67.6021
 
-[node name="Wagon" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_mbx1e"]
+radius = 231.91
+
+[node name="Wagon" type="CharacterBody2D"]
+collision_layer = 4
 script = ExtResource("1_mbx1e")
+move_speed = Vector2(1, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_trjy5")
@@ -23,3 +28,7 @@ collision_mask = 2
 position = Vector2(0.137931, 2.48276)
 scale = Vector2(0.944828, 0.944828)
 shape = SubResource("CapsuleShape2D_trjy5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 17)
+shape = SubResource("CircleShape2D_mbx1e")

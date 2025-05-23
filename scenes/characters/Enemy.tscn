@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dxpao11h03y5g" path="res://scenes/characters/Enemy.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dgmhft8dl1n3d" path="res://textures/pj/pj.png" id="2"]
-[ext_resource type="PackedScene" path="res://scenes/misc/ItemSpawner.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://ck33oo52sbsdd" path="res://scenes/misc/ItemSpawner.tscn" id="3"]
 
 [sub_resource type="CapsuleShape2D" id="1"]
 radius = 35.8589
@@ -1199,7 +1199,7 @@ shape = SubResource("1")
 
 [node name="anims" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_we5lc")
+&"": SubResource("AnimationLibrary_we5lc")
 }
 autoplay = "reset"
 

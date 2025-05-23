@@ -70,10 +70,12 @@ radius = 430.512
 radius = 33.801
 height = 67.6021
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="DustBunny" type="CharacterBody2D" groups=["bunny"]]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("2_lg7n7")
 
-[node name="DustBunny" type="Sprite2D" parent="."]
+[node name="sprite" type="Sprite2D" parent="."]
 position = Vector2(1, -31)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_xfs3y")
@@ -83,7 +85,7 @@ region_enabled = true
 region_rect = Rect2(39, 2, 947, 921)
 
 [node name="anims" type="AnimationPlayer" parent="."]
-root_node = NodePath("../DustBunny")
+root_node = NodePath("../sprite")
 libraries = {
 &"": SubResource("AnimationLibrary_fqins")
 }
@@ -95,6 +97,8 @@ shape = SubResource("CapsuleShape2D_lg7n7")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, -25)
+collision_layer = 2
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_lg7n7")
@@ -102,6 +106,7 @@ shape = SubResource("CircleShape2D_lg7n7")
 [node name="hurtbox" type="Area2D" parent="." groups=["enemy_contact_hurtboxes"]]
 position = Vector2(2, -25)
 scale = Vector2(1.28, 1.28)
+collision_layer = 2
 
 [node name="col" type="CollisionShape2D" parent="hurtbox"]
 shape = SubResource("CapsuleShape2D_lsnwy")

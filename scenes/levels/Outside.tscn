@@ -128,27 +128,43 @@ position = Vector2(-1711.26, -1401.84)
 
 [node name="enemy" parent="level" instance=ExtResource("4")]
 position = Vector2(909.861, 2408.58)
+collision_layer = 2
+collision_mask = 7
 
 [node name="enemy2" parent="level" instance=ExtResource("4")]
 position = Vector2(1401.15, 2054.49)
+collision_layer = 2
+collision_mask = 7
 
 [node name="enemy3" parent="level" instance=ExtResource("4")]
 position = Vector2(170.712, 2514.8)
+collision_layer = 2
+collision_mask = 7
 
 [node name="enemy4" parent="level" instance=ExtResource("4")]
 position = Vector2(887.73, 2775.94)
+collision_layer = 2
+collision_mask = 7
 
 [node name="enemy5" parent="level" instance=ExtResource("4")]
 position = Vector2(1352.46, 2961.83)
+collision_layer = 2
+collision_mask = 7
 
 [node name="enemy6" parent="level" instance=ExtResource("4")]
 position = Vector2(144.914, 746.878)
+collision_layer = 2
+collision_mask = 7
 
 [node name="enemy7" parent="level" instance=ExtResource("4")]
 position = Vector2(1766.1, 666.819)
+collision_layer = 2
+collision_mask = 7
 
 [node name="enemy8" parent="level" instance=ExtResource("4")]
 position = Vector2(2446.6, 633.461)
+collision_layer = 2
+collision_mask = 7
 
 [node name="Item" parent="level" instance=ExtResource("12")]
 position = Vector2(1032.97, 1956.3)

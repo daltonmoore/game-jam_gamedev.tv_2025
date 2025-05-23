@@ -832,7 +832,7 @@ radius = 33.801
 height = 67.6021
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-position = Vector2(585.638, 309.087)
+collision_mask = 0
 script = ExtResource("2")
 WALK_SPEED = 500
 
@@ -845,15 +845,19 @@ vframes = 10
 frame = 55
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(-0.882385, -27.9806)
+position = Vector2(5, -79)
 rotation = 1.5708
 shape = SubResource("1")
 
 [node name="player_sword" type="Area2D" parent="."]
 position = Vector2(6.30249, -86.9744)
+collision_mask = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="slash" type="CollisionPolygon2D" parent="player_sword"]
 polygon = PackedVector2Array(-134.513, -92.9393, -124.246, 19.4555, -59.4026, 109.155, 76.2278, 112.938, 75.147, 26.4802, -2.66479, 20.5363, -36.1671, -8.64319, -57.2411, -40.5244)
+disabled = true
 
 [node name="anims" type="AnimationPlayer" parent="."]
 libraries = {
@@ -867,9 +871,10 @@ properties = ["linear_vel", "roll_direction", "facing"]
 enabled = false
 
 [node name="hurtbox" type="Area2D" parent="."]
+collision_mask = 6
 
 [node name="col" type="CollisionShape2D" parent="hurtbox"]
-position = Vector2(0, -78.0211)
+position = Vector2(2, -38)
 shape = SubResource("18")
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]

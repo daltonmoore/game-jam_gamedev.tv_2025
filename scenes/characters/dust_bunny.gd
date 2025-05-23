@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
+class_name DustBunny
+
 @export var WALK_SPEED: int = 350
 
 var linear_vel := Vector2()
-var target : Node2D = null
+@export var target : Node2D = null
 @export var facing = "down" # (String, "up", "down", "left", "right")
 var anim = ""
 var new_anim = ""
@@ -40,5 +42,5 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
+	if body.is_in_group("wagon"):
 		target = body

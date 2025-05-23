@@ -40,6 +40,8 @@ enabled=PackedStringArray("res://addons/fancy_editor_sounds/plugin.cfg", "res://
 [global_group]
 
 enemy_contact_hurtboxes=""
+wagon=""
+bunny=""
 
 [input]
 
@@ -99,6 +101,12 @@ pause={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":6,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="enemy"
+2d_physics/layer_3="wagon"
 
 [rendering]
 

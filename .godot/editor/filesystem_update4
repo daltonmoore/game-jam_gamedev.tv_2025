@@ -9,3 +9,4 @@ res://scenes/main_scenes/wagon.gd
 res://scenes/characters/Wagon.gd
 res://scenes/characters/Wagon.tscn
 res://scenes/characters/dust_bunny.tscn
+res://scenes/characters/dust_bunny.gd

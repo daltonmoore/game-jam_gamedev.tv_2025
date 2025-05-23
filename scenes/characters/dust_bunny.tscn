@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cfjjdskud8l4g"]
+[gd_scene load_steps=11 format=3 uid="uid://cfjjdskud8l4g"]
 
 [ext_resource type="Texture2D" uid="uid://cj0xexfo835ls" path="res://textures/dust_bunny.png" id="1_xfs3y"]
 [ext_resource type="Script" uid="uid://d0p62aakdh4lt" path="res://scenes/characters/dust_bunny.gd" id="2_lg7n7"]
@@ -63,16 +63,19 @@ _data = {
 radius = 35.8589
 height = 71.7178
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lg7n7"]
-radius = 430.512
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lsnwy"]
 radius = 33.801
 height = 67.6021
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lsnwy"]
+radius = 5.38516
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lg7n7"]
+radius = 430.512
+
 [node name="DustBunny" type="CharacterBody2D" groups=["bunny"]]
 collision_layer = 2
-collision_mask = 3
+collision_mask = 0
 script = ExtResource("2_lg7n7")
 
 [node name="sprite" type="Sprite2D" parent="."]
@@ -94,21 +97,38 @@ libraries = {
 position = Vector2(2, -25)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_lg7n7")
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(0, -25)
-collision_layer = 2
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_lg7n7")
+metadata/_edit_lock_ = true
 
 [node name="hurtbox" type="Area2D" parent="." groups=["enemy_contact_hurtboxes"]]
 position = Vector2(2, -25)
 scale = Vector2(1.28, 1.28)
 collision_layer = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="col" type="CollisionShape2D" parent="hurtbox"]
 shape = SubResource("CapsuleShape2D_lsnwy")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="latchcircle" type="Area2D" parent="."]
+position = Vector2(24, -5)
+collision_layer = 2
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="LatchRadius" type="CollisionShape2D" parent="latchcircle"]
+shape = SubResource("CircleShape2D_lsnwy")
+debug_color = Color(0.859382, 0.362978, 1.92523e-07, 0.42)
+
+[node name="sightcircle" type="Area2D" parent="."]
+position = Vector2(0, -25)
+collision_layer = 2
+collision_mask = 4
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="ChaseRadius" type="CollisionShape2D" parent="sightcircle"]
+shape = SubResource("CircleShape2D_lg7n7")
+debug_color = Color(0.666667, 0.345098, 0.101961, 0.113725)
+
+[connection signal="area_entered" from="latchcircle" to="." method="_on_latchcircle_area_entered"]
+[connection signal="area_entered" from="sightcircle" to="." method="_on_sightbox_area_entered"]

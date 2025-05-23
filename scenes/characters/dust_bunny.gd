@@ -10,14 +10,11 @@ var linear_vel := Vector2()
 var anim = ""
 var new_anim = ""
 
-enum { STATE_IDLE, STATE_WALKING, STATE_ATTACK, STATE_ROLL, STATE_DIE, STATE_HURT }
+enum { STATE_IDLE, STATE_WALKING, STATE_LATCHED, STATE_ATTACK, STATE_ROLL, STATE_DIE, STATE_HURT }
 
 var state = STATE_IDLE
 
 func _process(delta: float) -> void:
-	if target != null:
-		state = STATE_WALKING
-	
 	## UPDATE ANIMATION
 	if new_anim != anim:
 		anim = new_anim
@@ -39,8 +36,17 @@ func _physics_process(delta: float) -> void:
 				new_anim = "walk"#_ + facing
 			else:
 				state = STATE_IDLE
+		STATE_LATCHED:
+			self.reparent(target)
+			state = STATE_IDLE
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("wagon"):
-		target = body
+func _on_sightbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("wagon"):
+		state = STATE_WALKING
+		target = area.owner # this will capture the Wagon's hurtbox and give me the Wagon root node
+
+
+func _on_latchcircle_area_entered(area: Area2D) -> void:
+	if area.is_in_group("wagon"):
+		state = STATE_LATCHED

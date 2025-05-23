@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://borq400q4dlgf"]
+[gd_scene load_steps=6 format=3 uid="uid://borq400q4dlgf"]
 
 [ext_resource type="Script" uid="uid://bpm8omb353kss" path="res://scenes/characters/Wagon.gd" id="1_mbx1e"]
 [ext_resource type="Texture2D" uid="uid://c7lvefh7gxko2" path="res://textures/wagon.PNG" id="1_trjy5"]
+[ext_resource type="PackedScene" uid="uid://drvgkns1v81b2" path="res://addons/simple_health_bar/health_bar.tscn" id="3_t0wtt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_trjy5"]
 radius = 33.801
@@ -13,7 +14,6 @@ radius = 231.91
 [node name="Wagon" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_mbx1e")
-move_speed = Vector2(1, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_trjy5")
@@ -32,3 +32,12 @@ shape = SubResource("CapsuleShape2D_trjy5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 17)
 shape = SubResource("CircleShape2D_mbx1e")
+
+[node name="HealthBar" parent="." instance=ExtResource("3_t0wtt")]
+offset_left = -136.0
+offset_top = -298.0
+offset_right = 133.0
+offset_bottom = -229.0
+value = 64.85
+
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]

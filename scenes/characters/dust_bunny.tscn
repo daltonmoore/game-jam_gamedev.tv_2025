@@ -130,5 +130,9 @@ metadata/_edit_group_ = true
 shape = SubResource("CircleShape2D_lg7n7")
 debug_color = Color(0.666667, 0.345098, 0.101961, 0.113725)
 
+[node name="LatchDamageTimer" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="area_entered" from="latchcircle" to="." method="_on_latchcircle_area_entered"]
 [connection signal="area_entered" from="sightcircle" to="." method="_on_sightbox_area_entered"]
+[connection signal="timeout" from="LatchDamageTimer" to="." method="_on_latch_damage_timer_timeout"]

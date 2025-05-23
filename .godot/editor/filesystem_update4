@@ -10,3 +10,7 @@ res://scenes/characters/Wagon.gd
 res://scenes/characters/Wagon.tscn
 res://scenes/characters/dust_bunny.tscn
 res://scenes/characters/dust_bunny.gd
+res://addons/simple_health_bar/health_bar.tscn
+res://addons/simple_health_bar/health_bar.gd
+res://addons/simple_health_bar/plugin.gd
+res://scenes/characters/Player.gd

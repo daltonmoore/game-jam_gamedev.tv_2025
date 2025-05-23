@@ -3,11 +3,12 @@ extends CharacterBody2D
 class_name DustBunny
 
 @export var WALK_SPEED: int = 350
-
-var linear_vel := Vector2()
 @export var target : Node2D = null
 @export var facing = "down" # (String, "up", "down", "left", "right")
+@export var damage_amount := 2
+
 var anim = ""
+var linear_vel := Vector2()
 var new_anim = ""
 
 enum { STATE_IDLE, STATE_WALKING, STATE_LATCHED, STATE_ATTACK, STATE_ROLL, STATE_DIE, STATE_HURT }
@@ -38,6 +39,7 @@ func _physics_process(delta: float) -> void:
 				state = STATE_IDLE
 		STATE_LATCHED:
 			self.reparent(target)
+			$LatchDamageTimer.start()
 			state = STATE_IDLE
 
 
@@ -50,3 +52,7 @@ func _on_sightbox_area_entered(area: Area2D) -> void:
 func _on_latchcircle_area_entered(area: Area2D) -> void:
 	if area.is_in_group("wagon"):
 		state = STATE_LATCHED
+
+
+func _on_latch_damage_timer_timeout() -> void:
+	target.damage(damage_amount)

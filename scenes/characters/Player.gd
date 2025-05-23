@@ -84,10 +84,8 @@ func _physics_process(_delta):
 				target_speed += Vector2.DOWN
 			if Input.is_action_pressed("move_left"):
 				target_speed += Vector2.LEFT
-				$sprite.flip_h = true
 			if Input.is_action_pressed("move_right"):
 				target_speed += Vector2.RIGHT
-				$sprite.flip_h = false
 			if Input.is_action_pressed("move_up"):
 				target_speed += Vector2.UP
 			
@@ -148,8 +146,10 @@ func goto_idle():
 func _update_facing():
 	if Input.is_action_pressed("move_left"):
 		facing = "left"
+		$sprite.flip_h = true
 	if Input.is_action_pressed("move_right"):
 		facing = "right"
+		$sprite.flip_h = false
 	if Input.is_action_pressed("move_up"):
 		facing = "up"
 	if Input.is_action_pressed("move_down"):

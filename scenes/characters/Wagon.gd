@@ -1,7 +1,6 @@
-extends Node2D
+extends CharacterBody2D
 
 @export var move_speed := Vector2()
-@export var move_direction := Vector2.RIGHT
 var bunny_list:= Array([], TYPE_OBJECT, "Node", DustBunny)
 
 

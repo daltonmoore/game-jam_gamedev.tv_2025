@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://ctd3mgp0s172q"]
 
 [ext_resource type="Script" uid="uid://b53r6donkwu5e" path="res://scenes/characters/Player.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://dkf7sqi6lks2" path="res://textures/tiny_swords/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="2_7n8ao"]
+[ext_resource type="Texture2D" uid="uid://cd8l1amgpbtwp" path="res://textures/knight sheet with roll.png" id="2_7n8ao"]
 [ext_resource type="PackedScene" uid="uid://kadobdlbd3sq" path="res://scenes/characters/debug_character.tscn" id="3"]
 
 [sub_resource type="CapsuleShape2D" id="1"]
@@ -355,10 +355,10 @@ tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.401399),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [15, 16, 17, 18, 19]
+"values": [49, 50, 51, 52, 53, 54, 55]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -837,11 +837,12 @@ script = ExtResource("2")
 WALK_SPEED = 500
 
 [node name="sprite" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
 position = Vector2(6.30249, -86.9744)
 texture = ExtResource("2_7n8ao")
 hframes = 6
-vframes = 8
-frame = 1
+vframes = 10
+frame = 55
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(-0.882385, -27.9806)

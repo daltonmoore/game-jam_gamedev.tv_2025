@@ -56,3 +56,9 @@ func _on_latchcircle_area_entered(area: Area2D) -> void:
 
 func _on_latch_damage_timer_timeout() -> void:
 	target.damage(damage_amount)
+
+func _on_hurtbox_area_entered(area):
+	print("dustbunny hit by: " + area.name)
+	if(area.is_in_group("player_sword")):
+		print("freeing (destroying) dust_bunny")
+		queue_free()

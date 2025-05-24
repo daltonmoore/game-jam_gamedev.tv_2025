@@ -837,7 +837,7 @@ position = Vector2(5, -79)
 rotation = 1.5708
 shape = SubResource("1")
 
-[node name="player_sword" type="Area2D" parent="."]
+[node name="player_sword" type="Area2D" parent="." groups=["player_sword"]]
 position = Vector2(6.30249, -86.9744)
 collision_mask = 2
 metadata/_edit_lock_ = true

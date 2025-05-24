@@ -376,7 +376,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="10"]
-length = 0.6
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -384,7 +384,7 @@ tracks/0/path = NodePath("player_sword/slash:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0.166667, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -420,7 +420,7 @@ tracks/3/path = NodePath("sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.402973, 0.502142),
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.166667, 0.266667, 0.366667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [24, 25, 26, 27, 28, 29]
@@ -444,9 +444,12 @@ tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.6),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"goto_idle"
+}, {
 "args": [],
 "method": &"goto_idle"
 }]
@@ -830,7 +833,7 @@ position = Vector2(6.30249, -86.9744)
 texture = ExtResource("2_7n8ao")
 hframes = 6
 vframes = 10
-frame = 49
+frame = 27
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(5, -79)
@@ -841,11 +844,10 @@ shape = SubResource("1")
 position = Vector2(6.30249, -86.9744)
 collision_mask = 2
 metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
 
 [node name="slash" type="CollisionPolygon2D" parent="player_sword"]
-polygon = PackedVector2Array(-134.513, -92.9393, -124.246, 19.4555, -59.4026, 109.155, 76.2278, 112.938, 75.147, 26.4802, -2.66479, 20.5363, -36.1671, -8.64319, -57.2411, -40.5244)
-disabled = true
+scale = Vector2(0.998106, 1)
+polygon = PackedVector2Array(-73.1877, 19.9744, -64.1706, 58.9744, 20.7368, 87.9744, 72.0875, 74.9744, 91.1235, 23.9744, 62.6975, -4.0256, 9.96981, 22.9744, -33.1118, -1.0256)
 
 [node name="anims" type="AnimationPlayer" parent="."]
 libraries = {

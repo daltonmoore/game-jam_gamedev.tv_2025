@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ctd3mgp0s172q"]
+[gd_scene load_steps=24 format=3 uid="uid://ctd3mgp0s172q"]
 
 [ext_resource type="Script" uid="uid://b53r6donkwu5e" path="res://scenes/characters/Player.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://cd8l1amgpbtwp" path="res://textures/knight sheet with roll.png" id="2_7n8ao"]
@@ -432,109 +432,109 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id="11"]
-length = 0.6
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("player_sword/down_slash:disabled")
+tracks/0/path = NodePath("sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("sprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.402973, 0.502142),
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.166667, 0.266667, 0.366667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [12, 13, 14, 15, 16, 17]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("sprite:flip_h")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.6),
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"goto_idle"
 }]
 }
-
-[sub_resource type="Animation" id="12"]
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("player_sword/down_slash:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("player_sword/left_slash:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.166667, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("sprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.402973, 0.502142),
+
+[sub_resource type="Animation" id="12"]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.166667, 0.266667, 0.366667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [12, 13, 14, 15, 16, 17]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("sprite:flip_h")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
 }
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.6),
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"goto_idle"
 }]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("player_sword/right_slash:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.166667, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="13"]
@@ -702,8 +702,36 @@ tracks/1/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_7n8ao"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sword/left_slash:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player_sword/right_slash:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qdvjb"]
 _data = {
+&"RESET": SubResource("Animation_7n8ao"),
 &"die": SubResource("2"),
 &"hurt": SubResource("3"),
 &"idle_down": SubResource("4"),
@@ -737,7 +765,7 @@ position = Vector2(6.30249, -86.9744)
 texture = ExtResource("2_7n8ao")
 hframes = 6
 vframes = 10
-frame = 39
+frame = 24
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(5, -79)
@@ -751,13 +779,25 @@ metadata/_edit_lock_ = true
 
 [node name="down_slash" type="CollisionPolygon2D" parent="player_sword"]
 scale = Vector2(0.998106, 1)
-polygon = PackedVector2Array(-73.1877, 19.9744, -64.1706, 58.9744, 20.7368, 87.9744, 72.0875, 74.9744, 91.1235, 23.9744, 62.6975, -4.0256, 9.96981, 22.9744, -33.1118, -1.0256)
+polygon = PackedVector2Array(-65.4264, 29.9744, -59.415, 57.9744, 20.7368, 87.9744, 72.0875, 74.9744, 91.1235, 23.9744, 62.6975, -4.0256, 9.96981, 22.9744, -30.36, 2.9744)
 disabled = true
 
 [node name="up_slash" type="CollisionPolygon2D" parent="player_sword"]
 rotation = -3.14159
 scale = Vector2(0.998106, 1)
 polygon = PackedVector2Array(-87.8639, 18.0256, -64.1706, 58.9744, 12.3258, 81.0256, 52.4017, 63.0256, 81.4568, 1.02559, 59.415, -8.97441, 9.96981, 22.9744, -40.7747, -9.9744)
+disabled = true
+
+[node name="left_slash" type="CollisionPolygon2D" parent="player_sword"]
+rotation = 1.5708
+scale = Vector2(0.998106, 1)
+polygon = PackedVector2Array(-80.1775, 22.3025, -68.1547, 63.3025, -22.0674, 95.3025, 18.0085, 97.3025, 58.0844, 80.3025, 39.0484, 31.3025, 9.96981, 22.9744, -33.1118, -1.0256)
+disabled = true
+
+[node name="right_slash" type="CollisionPolygon2D" parent="player_sword"]
+rotation = 1.5708
+scale = Vector2(0.998106, -1)
+polygon = PackedVector2Array(-80.1775, 22.3025, -68.1547, 63.3025, -22.0674, 95.3025, 18.0085, 97.3025, 58.0844, 80.3025, 39.0484, 31.3025, 9.96981, 22.9744, -33.1118, -1.0256)
 disabled = true
 
 [node name="anims" type="AnimationPlayer" parent="."]

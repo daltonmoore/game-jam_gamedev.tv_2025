@@ -2,11 +2,13 @@ extends CharacterBody2D
 
 class_name DustBunny
 
+@export var max_health: float = 100
 @export var WALK_SPEED: int = 350
 @export var target : Node2D = null
 @export var facing = "down" # (String, "up", "down", "left", "right")
 @export var damage_amount := 2
 
+@onready var health_bar = $HealthBar
 var anim = ""
 var linear_vel := Vector2()
 var new_anim = ""
@@ -14,6 +16,10 @@ var new_anim = ""
 enum { STATE_IDLE, STATE_WALKING, STATE_LATCHED, STATE_ATTACK, STATE_ROLL, STATE_DIE, STATE_HURT }
 
 var state = STATE_IDLE
+
+
+func _ready() -> void:
+	health_bar.init_bar(max_health)
 
 func _process(delta: float) -> void:
 	## UPDATE ANIMATION
@@ -60,5 +66,10 @@ func _on_latch_damage_timer_timeout() -> void:
 func _on_hurtbox_area_entered(area):
 	print("dustbunny hit by: " + area.name)
 	if(area.is_in_group("player_sword")):
-		print("freeing (destroying) dust_bunny")
-		queue_free()
+		damage(25)
+		if(health_bar.health <= 0):
+			queue_free()
+			
+		
+func damage(amount) -> void:
+	health_bar.update_bar(health_bar.health - amount)

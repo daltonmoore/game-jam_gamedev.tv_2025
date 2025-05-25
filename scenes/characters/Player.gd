@@ -10,7 +10,7 @@ and probably both should extend some parent script
 
 @export var WALK_SPEED: int = 350 # pixels per second
 @export var ROLL_SPEED: int = 1000 # pixels per second
-@export var hitpoints: int = 3
+@export var hitpoints: int = 10
 
 var linear_vel = Vector2()
 var roll_direction = Vector2.DOWN

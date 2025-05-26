@@ -15,7 +15,7 @@ var new_anim = ""
 
 enum { STATE_IDLE, STATE_WALKING, STATE_LATCHED, STATE_ATTACK, STATE_ROLL, STATE_DIE, STATE_HURT }
 
-var state = STATE_IDLE
+@export var state = STATE_IDLE
 
 
 func _ready() -> void:
@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_sightbox_area_entered(area: Area2D) -> void:
-	if area.is_in_group("wagon"):
+	if area.is_in_group("wagon") && state != STATE_LATCHED:
 		state = STATE_WALKING
 		target = area.owner # this will capture the Wagon's hurtbox and give me the Wagon root node
 
@@ -69,7 +69,6 @@ func _on_hurtbox_area_entered(area):
 		damage(25)
 		if(health_bar.health <= 0):
 			queue_free()
-			
 		
 func damage(amount) -> void:
 	health_bar.update_bar(health_bar.health - amount)

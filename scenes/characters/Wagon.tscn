@@ -8,19 +8,20 @@
 radius = 33.801
 height = 67.6021
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_mbx1e"]
-radius = 231.91
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0wtt"]
+size = Vector2(106, 94)
 
-[node name="Wagon" type="CharacterBody2D"]
-collision_layer = 4
+[node name="Wagon" type="Node2D" groups=["wagon"]]
 script = ExtResource("1_mbx1e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_trjy5")
 flip_h = true
+metadata/_edit_lock_ = true
 
 [node name="hurtbox" type="Area2D" parent="." groups=["wagon"]]
-scale = Vector2(7.25, 7.25)
+scale = Vector2(0.3, 0.3)
 collision_layer = 4
 collision_mask = 2
 
@@ -29,15 +30,20 @@ position = Vector2(0.137931, 2.48276)
 scale = Vector2(0.944828, 0.944828)
 shape = SubResource("CapsuleShape2D_trjy5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 17)
-shape = SubResource("CircleShape2D_mbx1e")
-
 [node name="HealthBar" parent="." instance=ExtResource("3_t0wtt")]
-offset_left = -136.0
-offset_top = -298.0
-offset_right = 133.0
-offset_bottom = -229.0
+offset_left = -89.0
+offset_top = -92.0
+offset_right = 88.0
+offset_bottom = -75.0
 value = 64.85
 
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 9
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-2, 1)
+shape = SubResource("RectangleShape2D_t0wtt")
+
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="body_exited" from="hurtbox" to="." method="_on_hurtbox_body_exited"]

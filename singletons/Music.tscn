@@ -126,5 +126,5 @@ bus = &"Music"
 
 [node name="anims" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_y1x2n")
+&"": SubResource("AnimationLibrary_y1x2n")
 }

@@ -11,6 +11,7 @@ and probably both should extend some parent script
 @export var WALK_SPEED: int = 350 # pixels per second
 @export var ROLL_SPEED: int = 1000 # pixels per second
 @export var hitpoints: int = 10
+@export_range(0.0, 5.0, 0.1) var anim_speed: float = 1
 
 var linear_vel = Vector2()
 var roll_direction = Vector2.DOWN
@@ -39,7 +40,6 @@ func _ready():
 			Dialogs.dialog_started.connect(_on_dialog_started) == OK and
 			Dialogs.dialog_ended.connect(_on_dialog_ended) == OK ):
 		printerr("Error connecting to dialog system")
-	pass
 
 
 func _physics_process(_delta):
@@ -67,6 +67,8 @@ func _physics_process(_delta):
 					).normalized()
 				_update_facing()
 			new_anim = "idle_" + facing
+			set_velocity(Vector2.ZERO)
+			move_and_slide()
 			pass
 		STATE_WALKING:
 			if Input.is_action_just_pressed("attack"):
@@ -119,14 +121,15 @@ func _physics_process(_delta):
 				new_anim = "roll"
 		STATE_DIE:
 			new_anim = "die"
+			run_reload()
 		STATE_HURT:
 			new_anim = "hurt"
 	
 	## UPDATE ANIMATION
 	if new_anim != anim:
 		anim = new_anim
+		$anims.speed_scale = anim_speed
 		$anims.play(anim)
-	pass
 
 
 func _on_dialog_started():
@@ -142,6 +145,9 @@ func goto_idle():
 	new_anim = "idle_" + facing
 	state = STATE_IDLE
 
+func run_reload():
+	await get_tree().create_timer(1.0).timeout
+	get_tree().reload_current_scene()
 
 func _update_facing():
 	if Input.is_action_pressed("move_left"):
@@ -163,7 +169,6 @@ func despawn():
 	hide()
 	await get_tree().create_timer(5.0).timeout
 	get_tree().reload_current_scene()
-	pass
 
 
 func _on_hurtbox_area_entered(area):

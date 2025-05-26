@@ -61,15 +61,15 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lg7n7"]
-radius = 35.8589
-height = 71.7178
+radius = 21.0
+height = 42.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lsnwy"]
-radius = 33.801
-height = 67.6021
+radius = 16.4063
+height = 41.8906
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lsnwy"]
-radius = 5.38516
+radius = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lg7n7"]
 radius = 430.512
@@ -77,6 +77,7 @@ radius = 430.512
 [node name="DustBunny" type="CharacterBody2D" groups=["bunny"]]
 collision_layer = 2
 collision_mask = 0
+motion_mode = 1
 script = ExtResource("2_lg7n7")
 
 [node name="sprite" type="Sprite2D" parent="."]
@@ -95,13 +96,13 @@ libraries = {
 }
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(2, -25)
+position = Vector2(2, -16.31)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_lg7n7")
 metadata/_edit_lock_ = true
 
 [node name="hurtbox" type="Area2D" parent="." groups=["enemy_contact_hurtboxes"]]
-position = Vector2(2, -25)
+position = Vector2(2, -23.81)
 scale = Vector2(1.28, 1.28)
 collision_layer = 2
 metadata/_edit_lock_ = true
@@ -111,7 +112,7 @@ metadata/_edit_group_ = true
 shape = SubResource("CapsuleShape2D_lsnwy")
 
 [node name="latchcircle" type="Area2D" parent="."]
-position = Vector2(24, -5)
+position = Vector2(10, -14)
 collision_layer = 2
 collision_mask = 4
 metadata/_edit_group_ = true

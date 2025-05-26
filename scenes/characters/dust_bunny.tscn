@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cfjjdskud8l4g"]
+[gd_scene load_steps=12 format=3 uid="uid://cfjjdskud8l4g"]
 
 [ext_resource type="Texture2D" uid="uid://cj0xexfo835ls" path="res://textures/dust_bunny.png" id="1_xfs3y"]
 [ext_resource type="Script" uid="uid://d0p62aakdh4lt" path="res://scenes/characters/dust_bunny.gd" id="2_lg7n7"]
+[ext_resource type="PackedScene" uid="uid://drvgkns1v81b2" path="res://addons/simple_health_bar/health_bar.tscn" id="3_lsnwy"]
 
 [sub_resource type="Animation" id="Animation_lg7n7"]
 length = 0.001
@@ -133,6 +134,15 @@ debug_color = Color(0.666667, 0.345098, 0.101961, 0.113725)
 [node name="LatchDamageTimer" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="HealthBar" parent="." instance=ExtResource("3_lsnwy")]
+offset_left = -16.0
+offset_top = 14.0
+offset_right = 65.0
+offset_bottom = 29.0
+scale = Vector2(0.433479, 0.474507)
+value = 64.85
+
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_entered" from="latchcircle" to="." method="_on_latchcircle_area_entered"]
 [connection signal="area_entered" from="sightcircle" to="." method="_on_sightbox_area_entered"]
 [connection signal="timeout" from="LatchDamageTimer" to="." method="_on_latch_damage_timer_timeout"]
